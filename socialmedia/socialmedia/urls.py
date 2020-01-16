@@ -16,6 +16,7 @@ Including another URLconf
 from django.conf.urls import url,include
 from django.contrib import admin
 from . import views
+from django.conf import settings
 
 
 urlpatterns = [
@@ -29,3 +30,9 @@ urlpatterns = [
     url(r'^groups/', include("groups.urls", namespace="groups")),
     
 ]
+
+if settings.DEBUG:
+    import debug_toolbar
+    urlpatterns = [
+        url(r'^__debug__/', include(debug_toolbar.urls))
+    ] + urlpatterns
