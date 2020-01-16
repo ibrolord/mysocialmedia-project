@@ -2,14 +2,13 @@
 
 {% block prepost %}
     <div class="col-md-4">
-    <h1>@{{post_user.username}}</h1>
+        <h1>@{{post.user.username}}</h1>
     </div>
-{% endblock prepost %}
+{% endblock %}
 
 {% block post_content %}
 <div class="col-md-8">
     {% for post in post_list %}
     {% include "posts/_post.html" %}
-        
     {% endfor %}
-{% endblock post_content %}
+{% endblock %}
